@@ -13,8 +13,7 @@ with open('wallets.txt', 'r', encoding='utf-8-sig') as file:
 try:
     for wallet in wallets:
         url = f"https://api.ftmscan.com//api?module=account&action=txlist&address={wallet}&startblock=0&endblock=99999999&page=1&offset={offset}&sort=asc&apikey={api_key}"
-        response = requests.get(url)
-        data = response.json()
+        data = requests.get(url).json()
         response_status = data.get("status")
         response_result = data.get("result")
 
